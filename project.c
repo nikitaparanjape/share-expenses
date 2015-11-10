@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  * Copyright (C) Nikita Pramod Paranjape nikitaparanjape@gmail.com
  *
@@ -667,12 +668,14 @@ int add_member(char* grpname, char * grppass, char * mem[16], char * pass[16], i
 	}
 	buffer1 = getpass(" please enter password for group : ");
 	while(flag == 2){
+		
 		if(strcmp(grppass, buffer1) == 0){
 			flag = 3;
 			break;
 		}
 		else{
 			printf(" incorrect password\n");
+			buffer1 = getpass(" please re-enter password for group : ");
 			flag = 2;
 		}
 	}/* while closed*/
@@ -720,7 +723,7 @@ void print_menu(){
 int delete_member(char * grpname, char * grppass, char * mem[16], char * pass[16], int * num_mem, struct name * arruser[16]){
 	int flag = 0;
 	char buffer[10];
-	int j, i;
+	int j = -1, i;
 	char * buffer1;
 	printf("please enter groupname\n");
 	while(flag == 0){
